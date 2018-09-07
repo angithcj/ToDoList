@@ -1,16 +1,12 @@
-.card {
-						position: relative;
-						/* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
-						transition: 0.3s;
-						max-width: 600px;
-						margin-left: auto;
-						margin-right: auto;
-						margin-top: 40px;
-						padding: 16px 16px;
-            border: 10px solid grey;
+.Card {
+					display: inline-block;
+					width: 500px;
+          border: 10px solid grey;
+					margin: 1em;
 					}
+
 .header {
-        display: grid;
+				display: grid;
         background-color: #f44336;
         padding:10px 10px 0px 10px;
         color: white;
@@ -43,14 +39,42 @@ li:nth-child(odd) {
 li:hover{
     background: #ddd;
   }
-.ToDo {
+
+.increase_priority{
+		position:absolute;
+		right: 0;
+		top: 0;
+		font-weight: normal;
+		margin-right: 70px;
+		padding: 12px 5px 6px 5px;
+}
+.increase_priority:hover{
+	background-color: #000;
+	color: white;
+}
+
+.decrease_priority{
+		position:absolute;
+		right: 0;
+		top: 0;
+		font-weight: normal;
+		margin-right: 50px;
+		padding: 12px 5px 6px 5px;
+}
+.decrease_priority:hover{
+	background-color: #000;
+	color: white;
+}
+
+
+.ToDo,.InProgress,.Done{
     position: absolute;
     right: 0;
     top: 0;
     font-weight: normal;
     padding: 12px 12px 6px 16px;
 }
-.ToDo:hover {
+.ToDo:hover,.InProgress:hover,.Done:hover{
     background-color: #f44336;
     color: white;
   }

@@ -6,9 +6,10 @@
   </head>
 
   <body>
-    <!-- creating a card for the list -->
-      <div class="card">
 
+
+    <!-- creating a card for the tasklist -->
+      <div class="Card" >
         <!-- a header is created  -->
         <div class="header">
           <h1>TaskList</h1>
@@ -21,6 +22,42 @@
           <li>Designing</li>
         </ul>
       </div>
+
+      <!-- creating a card for the todolist -->
+        <div class="Card" >
+          <!-- a header is created  -->
+          <div class="header">
+            <h1>ToDoList</h1>
+          </div>
+          <!-- creating an unordered list to list todos -->
+          <ul id="todoul" class="taskList">
+
+          </ul>
+        </div>
+
+        <!-- creating a card for inprogress list -->
+        <div class="Card">
+          <!-- a header is created  -->
+          <div class="header">
+            <h1>In Progress</h1>
+          </div>
+          <!-- creating an unordered list to list inprogrss -->
+          <ul id="ulInprogress" class="taskList">
+
+          </ul>
+        </div>
+
+        <!-- creating a card for done list -->
+        <div class="Card">
+          <!-- a header is created  -->
+          <div class="header">
+            <h1>Done</h1>
+          </div>
+          <!-- creating an unordered list to list done -->
+          <ul id="ulDone" class="taskList">
+
+          </ul>
+        </div>
 
       <script src="tasklist.js"></script>
   </body>
