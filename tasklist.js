@@ -1,8 +1,5 @@
 
-
-
 var progressList=[];
-
 // appending a span to each item in the list
 //clicking on it add the item to todo list
 function appendAddtoTodoButton(){
@@ -20,8 +17,7 @@ appendAddtoTodoButton();
 
 var assignedPersons=["Tony","Bruce","Peter","Wade"];
 // assigning every item to a person.
-// names of the persons are read from an array.
-
+// names of the persons are read from the above array.
 function assigningTaskToPerson(){
   var myNodelist = document.getElementsByTagName("LI");
   var i;
@@ -33,15 +29,12 @@ function assigningTaskToPerson(){
     myNodelist[i].appendChild(span);
   }
 }
-
 assigningTaskToPerson();
 
-// onclicking the todo button, the list is stored to localstorage.
-// also the task can be retrived from the list
+// on clicking the todo button, the list item is stored to localstorage.
+// also the item can be retrived from the list
 
-
-var todoList=document.getElementsByClassName("ToDo");
-
+var todoList=document.getElementsByClassName("ToDo");   // getting spans of to do button
 for(let listIndex=0;listIndex<todoList.length;listIndex++){
 
   todoList[listIndex].onclick = function(){
@@ -49,12 +42,12 @@ for(let listIndex=0;listIndex<todoList.length;listIndex++){
     var valueofDiv=todoDiv.innerHTML;
     localStorage.setItem("todo"+listIndex,valueofDiv);
 
-    addtoToDo("todo"+listIndex,listIndex);
+    addtoToDo("todo"+listIndex,listIndex);  // will add the item in todo list
     todoDiv.style.display="none";
   }
 }
 
-// adding the liist from localStorage to todolist
+// adding the list from localStorage to todolist
 var todoAdded=[];
 function addtoToDo(item,index){
       var isAdded=false;
@@ -116,20 +109,18 @@ function addtoToDo(item,index){
         var list=document.getElementById("todoul");
 
         incPriority.onclick = function() {
-          //alert("blabla");
-          var previous = findPrevious(incPriority.parentNode);
+          var previous = findPrevious(incPriority.parentNode); // get te previous list item
           if (previous) {
             list.insertBefore(incPriority.parentNode,previous);
           }
         };
 
         decPriority.onclick = function() {
-          //alert("blublu");
-          var next = findNext(decPriority.parentNode);
+          var next = findNext(decPriority.parentNode); //get next list item
           if (next) {
             list.insertBefore(decPriority.parentNode,next);
           }
-          if(next===null){
+          if(next===null){ // in the case of second last item ,it returns null
             list.appendChild(decPriority.parentNode);
           }
         };
@@ -146,14 +137,13 @@ function addtoToDo(item,index){
         do {
            elm = elm.nextSibling;
            if(elm!=null){
-             elm=elm.nextSibling;
+             elm=elm.nextSibling;  // need to return next of the next sibling to use insertbefore effectively
            }
        } while (elm && elm.nodeType != 1);
        return elm;
       }
 
   }
-
 
   // this loop contain a onclick function
   // in which it store clicked item to local localStorage
@@ -213,8 +203,7 @@ function addtoInProgress(progressList){
   }
 }
 
-// TODO: addtoToDo
-
+// add items from in progress list to doneList
 function addtoDone(doneList){
   console.log(doneList);
   console.log(doneList.length);
@@ -224,17 +213,17 @@ function addtoDone(doneList){
       var valueofDivDone=divDone.innerHTML;
       console.log(divDone.innerHTML);
       localStorage.setItem("done"+listIndex,valueofDivDone);
-      addtoProgress("done"+listIndex,listIndex);
+      addtoDoneList("done"+listIndex,listIndex);
       divDone.style.display = "none";
     }
   }
 
 
 
-  //adding the list from localStorage to progressList
+  //adding the list from localStorage to donelist
   var doneAdded=[];
   var isAddedtoDone;
-  function addtoProgress(item,index){
+  function addtoDoneList(item,index){
       isAddedtoDone=false;
       var localValofDiv=localStorage.getItem(item);
       var res=localValofDiv.split("<");
@@ -258,11 +247,6 @@ function addtoDone(doneList){
       spanAssigned.appendChild(txtAssigned);
       li.appendChild(spanAssigned);
 
-      // var spanAddToProgress = document.createElement("SPAN");
-      // var sign = document.createTextNode("=>");
-      // spanAddToProgress.className = "Done";
-      // spanAddToProgress.appendChild(sign);
-      // li.appendChild(spanAddToProgress);
       document.getElementById("ulDone").appendChild(li);
     }
   }
